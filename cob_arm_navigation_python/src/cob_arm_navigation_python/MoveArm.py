@@ -90,9 +90,9 @@ def get_joint_goal(arm_name, target, robot_state, seed = None):
         req.ik_request.pose_stamped = ps_target
         req.ik_request.ik_seed_state = deepcopy(robot_state)
         if seed is not None:
-	    js, err = get_joint_goal(arm_name, seed, robot_state)
-	    if (err is None or err.val == err.SUCCESS) and js is not None:
-		set_joint_state_in_robot_state(js,req.ik_request.ik_seed_state)
+            js, err = get_joint_goal(arm_name, seed, robot_state)
+            if (err is None or err.val == err.SUCCESS) and js is not None:
+                set_joint_state_in_robot_state(js,req.ik_request.ik_seed_state)
         req.ik_request.robot_state = robot_state
         res = iks(req)
         return res.solution.joint_state, res.error_code
@@ -108,36 +108,36 @@ class MoveArmUnplanned(MotionExecutable):
         self.seed = seed
         self.joint_goal = None
     def info(self):
-		print self.name
-		print self.target
+        print self.name
+        print self.target
     def plan(self, update_ps = True):
         psi = get_planning_scene_interface()
 
         self.joint_goal, err = get_joint_goal(self.name, self.target, psi.get_robot_state(), self.seed)
-        #print joint_goal
+        #print self.joint_goal
         if err is not None and err.val != err.SUCCESS:
             self.joint_goal = None
             return ErrorCode("IK error: " + arm_nav_error_dict[err.val])
-	if update_ps:
-	    set_planning_scene_joint_state(self.joint_goal)
-	return ErrorCode()
+        if update_ps:
+            set_planning_scene_joint_state(self.joint_goal)
+        return ErrorCode()
     def execute(self):
-	if self.joint_goal is None:
-	    error_code = self.plan(update_ps=False)
-	    if not error_code.success:
-		raise error_code
-	#ToDo: in final version: use result from planning step instead of calling move_arm        
-	sss = simple_script_server.simple_script_server()
-	if type(self.target) is str:
-	    target = self.target
-	else:
-	    target = [list(self.joint_goal.position)]
-	return MotionHandleSSS(sss, ('arm', target))
-	
+        if self.joint_goal is None:
+            error_code = self.plan(update_ps=False)
+            if not error_code.success:
+                raise error_code
+        #ToDo: in final version: use result from planning step instead of calling move_arm        
+        sss = simple_script_server.simple_script_server()
+        if type(self.target) is str:
+            target = self.target
+        else:
+            target = [list(self.joint_goal.position)]
+        return MotionHandleSSS(sss, ('arm', target))
+        
 
 class MoveArm(MoveArmUnplanned):
     def __init__(self, name, target, seed = None, constraint_aware = True):
-	MoveArmUnplanned.__init__(self, name, target, seed)
+        MoveArmUnplanned.__init__(self, name, target, seed)
         self.type = "MoveArm"
         self.goal = None
         self.constraint_aware = constraint_aware
@@ -150,15 +150,15 @@ class MoveArm(MoveArmUnplanned):
             self.planner_service_name = "/ompl_planning/plan_kinematic_path"
         rospy.loginfo("Using " + self.planner_service_name)
     def info(self):
-		print self.name
-		print self.target
+        print self.name
+        print self.target
     def plan(self, update_ps = True):
         psi = get_planning_scene_interface()
 
-	ec = MoveArmUnplanned.plan(self,False)
-	if not ec.success:
-	    return ec
-	
+        ec = MoveArmUnplanned.plan(self,False)
+        if not ec.success:
+            return ec
+        
         req = GetMotionPlanRequest()
         req.motion_plan_request.group_name = self.name
         req.motion_plan_request.num_planning_attempts = 1
