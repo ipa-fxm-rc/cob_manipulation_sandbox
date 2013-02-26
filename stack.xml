@@ -12,6 +12,7 @@
   <depend stack="arm_navigation_experimental" /> <!-- collider, move_arm_warehouse -->
   <depend stack="cob_manipulation" /> <!-- cob_manipulator, cob_arm_navigation -->
   <depend stack="cob_robots" /> <!-- cob_hardware_config -->
+  <!--depend stack="object_manipulation" /-->
   <depend stack="robot_model" /> <!-- robot_state_publisher -->
   <depend stack="ros" />
   <depend stack="visualization" /> <!-- rviz -->
