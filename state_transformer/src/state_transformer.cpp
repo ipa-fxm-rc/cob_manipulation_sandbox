@@ -29,7 +29,7 @@ public:
     ROS_INFO("Transforming from %s to %s", from_frame.c_str(), to_frame.c_str());
     
     std::vector<geometry_msgs::TransformStamped> transforms;
-    btTransform global_to_to, global_to_from;
+    tf::Transform global_to_to, global_to_from;
     if (!world_transform(from_frame, kstate, global_to_from)) {
       res.val = res.UNABLE_TO_FIND_FROM_FRAME;
       return true;
@@ -47,7 +47,7 @@ public:
     //
     //HOWEVER, the transform that takes a pose expressed in from and transforms
     //it to a pose expressed in to is the INVERSE of this transform
-    btTransform trans = (global_to_from.inverse())*global_to_to;
+    tf::Transform trans = (global_to_from.inverse())*global_to_to;
     tf::transformTFToMsg(trans, res.transform_stamped.transform);
     res.transform_stamped.header.stamp = ros::Time(0);
     res.transform_stamped.header.frame_id = req.from_frame_id;
@@ -165,7 +165,7 @@ protected:
 
   bool world_transform(std::string frame_id, 
 		       const planning_models::KinematicState &state,
-		       btTransform &transform) {
+		       tf::Transform &transform) {
     if (!frame_id.compare(state.getKinematicModel()->getRoot()->getParentFrameId())) {
       //identity transform
       transform.setIdentity();
