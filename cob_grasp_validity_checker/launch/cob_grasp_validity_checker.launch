@@ -1,0 +1,9 @@
+<launch>
+	<node name="cob_grasp_validity_checker" pkg="cob_grasp_validity_checker" type="cob_grasp_validity_checker" />	
+	<node name="cob_grasp_generator" pkg="cob_grasp_generator" type="cob_grasp_generator" />
+	<node name="cob_grasp_selector" pkg="cob_grasp_selector" type="cob_grasp_selector" />	
+	<node name="cob_grasp_manager" pkg="cob_grasp_manager" type="cob_grasp_manager" />
+</launch>
+
+
+
