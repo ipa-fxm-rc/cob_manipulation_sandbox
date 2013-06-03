@@ -1,0 +1,19 @@
+<package>
+  <description brief="cob_grasp_manager">
+
+     cob_grasp_manager
+
+  </description>
+  <author>rohit chandra</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cob_grasp_manager</url>
+  <depend package="roscpp"/>
+  <depend package="rospy"/>
+  <depend package="gazebo"/>
+  <depend package="cob_object_detection_msgs"/>
+  <depend package="cob_grasp_selector"/>
+
+</package>
+
+

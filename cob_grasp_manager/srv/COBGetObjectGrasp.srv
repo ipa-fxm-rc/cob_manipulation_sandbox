@@ -1,0 +1,11 @@
+string object_name
+uint32 objectID
+std_msgs/Bool new_situation				# to know if the situation changed
+---
+std_msgs/Bool success                        # return true if valid grasp available
+geometry_msgs/Pose valid_grap_pose 	     # valid grasp pose from the list
+geometry_msgs/Pose valid_pre_grap_pose 	     # valid grasp pose from the list
+sensor_msgs/JointState valid_pre_grasp_joint_position     # valid grasp joint configuration from the list
+sensor_msgs/JointState valid_grasp_joint_position     # valid grasp joint configuration from the list
+sensor_msgs/JointState valid_optimal_grasp_joint_position     # valid grasp joint configuration from the list
+uint32 valid_grasp_index                      #index of the grasp in grasp table

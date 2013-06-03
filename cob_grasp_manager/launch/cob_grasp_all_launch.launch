@@ -1,0 +1,9 @@
+<launch>
+	<include file="$(find cob_arm_navigation)/launch/start_planning_environment.launch" />
+	<include file="$(find cob_arm_navigation)/launch/rviz.launch" />
+	<include file="$(find cob_grasp_manager)/launch/cob_grasp_service.launch" />
+	<include file="$(find cob_gazebo_objects)/launch/upload_param.launch" />
+</launch>
+
+
+

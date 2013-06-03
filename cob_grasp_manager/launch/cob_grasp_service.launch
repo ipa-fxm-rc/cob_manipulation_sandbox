@@ -1,0 +1,10 @@
+<launch>
+	<node name="cob_grasp_validity_checker" pkg="cob_grasp_validity_checker" type="cob_grasp_validity_checker" output="screen" />	
+	<node name="cob_grasp_generator" pkg="cob_grasp_generator" type="cob_grasp_generator" output="screen" />
+	<node name="cob_grasp_selector" pkg="cob_grasp_selector" type="cob_grasp_selector" output="screen" />	
+	<node name="detect_object" pkg="cob_grasp_manager" type="cob_fake_detect" output="screen" />
+	<node name="cob_grasp_manager" pkg="cob_grasp_manager" type="cob_grasp_manager" output="screen" />
+</launch>
+
+
+

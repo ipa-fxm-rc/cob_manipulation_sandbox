@@ -1,0 +1,7 @@
+<launch>
+	<include file="$(find cob_bringup_sim)/launch/robot.launch" />
+	<include file="$(find cob_arm_navigation)/launch/start_planning_environment.launch" />
+</launch>
+
+
+
