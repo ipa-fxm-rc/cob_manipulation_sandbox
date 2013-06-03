@@ -1,0 +1,28 @@
+<package>
+  <description brief="cob_grasp_selector">
+
+     cob_grasp_selector
+
+    </description>
+  <author>rohit chandra</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cob_grasp_validity_checker</url>
+  <depend package="actionlib"/>
+  <depend package="roscpp"/>
+  <depend package="joint_trajectory_action"/>
+  <depend package="geometry_msgs"/>
+  <depend package="kinematics_msgs"/>
+  <depend package="pr2_controllers_msgs"/>
+  <depend package="tf"/>
+  <depend package="planning_environment"/>
+  <depend package="arm_navigation_msgs"/>
+  <depend package="actionlib_msgs"/>
+  <depend package="arm_navigation_msgs"/>
+  <depend package="planning_environment"/>
+  <depend package="mapping_rviz_plugin"/>
+  <depend package="cob_grasp_validity_checker"/>
+  <depend package="cob_grasp_generator"/>
+</package>
+
+
