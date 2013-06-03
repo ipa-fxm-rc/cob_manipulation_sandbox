@@ -1,0 +1,4 @@
+uint32 objectID           		     # for the object id of requested object
+std_msgs/Bool new_situation				# to know if the situation changed
+---
+cob_grasp_generator/GraspDefinition grasp

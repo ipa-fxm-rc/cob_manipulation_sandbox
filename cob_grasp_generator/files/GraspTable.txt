@@ -1,0 +1,4 @@
+3
+11, /home/fxm-rc/git/care-o-bot/cob_manipulation_sandbox/cob_grasp_generator/files/Sauerkraut_SDH_catch.xml 
+12, /home/fxm-rc/git/care-o-bot/cob_manipulation_sandbox/cob_grasp_generator/files/Sauerkraut_SDH_KIT.xml
+13, /home/fxm-rc/git/care-o-bot/cob_manipulation_sandbox/cob_grasp_generator/files/YellowSaltCube2_SDH.xml
